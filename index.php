@@ -1,3 +1,74 @@
+<?php
+$menu = [
+	[
+		'url' => '/',
+		'title' => 'Home'
+	],
+		[
+		'url' => '/dropdown',
+		'title' => 'Dropdown',
+		'submenu' => [
+			[
+				'url' => '/lorem-ipsum',
+				'title' => 'lorem ipsum'
+			],
+			[
+				'url' => '/magna-veroeros',
+				'title' => 'Magna veroeros'
+			],
+			[
+				'url' => '/etiam-nisl',
+				'title' => 'Etiam nisl'
+			],
+			[
+				'url' => '/sed-consequat',
+				'title' => 'Sed consequat',
+				'submenu' =>[
+					[
+						'url' => '/lorem-dolor',
+						'title' => 'Lorem dolor'
+					],
+					[
+						'url' => '/amet-consequat',
+						'title' => 'Amet consequat'
+					],
+					[
+						'url' => '/magna-phasellus',
+						'title' => 'Magna phasellus'
+					],
+					[
+						'url' => '/etiam-nisl',
+						'title' => 'Etiam nisl'
+					],
+					[
+						'url' => '/sed-feugiat',
+						'title' => 'Sed feugiat'
+					]
+				]
+			],
+			[
+				'url' => '/nisl-tempus',
+				'title' => 'Nisl tempus'
+			]
+		]
+	],
+		[
+		'url' => '/left-sidebar',
+		'title' => 'Left Sidebar'
+	],
+	[
+		'url' => '/right-sidebar',
+		'title' => 'Right Sidebar'
+	],
+	[
+		'url' => '/no-sidebar',
+		'title' => 'No Sidebar'
+	],
+		
+];
+
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Escape Velocity by HTML5 UP
@@ -29,29 +100,53 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Home</a></li>
-									<li>
-										<a href="#">Dropdown</a>
-										<ul>
-											<li><a href="#">Lorem ipsum</a></li>
-											<li><a href="#">Magna veroeros</a></li>
-											<li><a href="#">Etiam nisl</a></li>
-											<li>
-												<a href="#">Sed consequat</a>
-												<ul>
-													<li><a href="#">Lorem dolor</a></li>
-													<li><a href="#">Amet consequat</a></li>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam nisl</a></li>
-													<li><a href="#">Sed feugiat</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Nisl tempus</a></li>
-										</ul>
-									</li>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<?php foreach($menu as $item) { ?>
+										<li>
+											<a href="<?php echo $item['url'] ?>"><?=$item['title'] ?></a>
+											<?php if(isset($item['submenu']) and !empty($item[submenu])) { ?>
+											<ul>
+												<?php foreach($item['submenu'] as $subitem) { ?>
+													<li>
+														<a href="<?php echo $subitem['url'] ?>"><?=$subitem['title'] ?></a>
+															<?php if(isset($subitem['submenu']) and !empty($subitem[submenu])) { ?>
+																<ul>
+																	<?php foreach($subitem['submenu'] as $subsubitem) { ?>
+																		<li>
+																			<a href="<?php echo $subsubitem['url'] ?>"><?=$subsubitem['title'] ?></a>
+																		</li>
+																	<?php } ?>
+																</ul>
+															<?php } ?>
+													</li>								
+												<?php } ?>
+											</ul>
+											<?php } ?>
+										</li>
+									<?php } ?>
+
+									<!-- <li class="current"><a href="index.html">Home</a></li> -->
+									<!-- <li> -->
+										<!-- <a href="#">Dropdown</a> -->
+										<!-- <ul> -->
+											<!-- <li><a href="#">Lorem ipsum</a></li> -->
+											<!-- <li><a href="#">Magna veroeros</a></li> -->
+											<!-- <li><a href="#">Etiam nisl</a></li> -->
+											<!-- <li> -->
+												<!-- <a href="#">Sed consequat</a> -->
+												<!-- <ul> -->
+													<!-- <li><a href="#">Lorem dolor</a></li> -->
+													<!-- <li><a href="#">Amet consequat</a></li> -->
+													<!-- <li><a href="#">Magna phasellus</a></li> -->
+													<!-- <li><a href="#">Etiam nisl</a></li> -->
+													<!-- <li><a href="#">Sed feugiat</a></li> -->
+												<!-- </ul> -->
+											<!-- </li> -->
+											<!-- <li><a href="#">Nisl tempus</a></li> -->
+										<!-- </ul> -->
+									<!-- </li> -->
+									<!-- <li><a href="left-sidebar.html">Left Sidebar</a></li> -->
+									<!-- <li><a href="right-sidebar.html">Right Sidebar</a></li> -->
+									<!-- <li><a href="no-sidebar.html">No Sidebar</a></li> -->
 								</ul>
 							</nav>
 
