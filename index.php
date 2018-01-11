@@ -97,6 +97,31 @@ $features = [
 ];
 ?>
 
+<?php
+$contactList = [
+	['contactTitle' => 'Mailing Address',
+	 'contactIcon' => 'icon fa-home',
+	 'contactLink' => 'Untitled Corporation',
+	 			'1234 Somewhere Rd #987',
+	 			'Nashville, TN 00000-0000'
+	],
+	['contactTitle' => 'Social',
+	 'contactIcon' => 'icon fa-comment',
+	 'contactLink' => '@untitled-corp',
+	 			'linkedin.com/untitled',
+	 			'facebook.com/untitled'
+	],
+	['contactTitle' => 'Email',
+	 'contactIcon' => 'icon fa-envelope',
+	 'contactLink' => 'info@untitled.tld'
+	],
+	['contactTitle' => 'Phone',
+	 'contactIcon' => 'icon fa-phone',
+	 'contactLink' => '(000) 555-0000'
+	]
+]
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Escape Velocity by HTML5 UP
@@ -305,7 +330,31 @@ $features = [
 								<!-- Contact -->
 									<section class="feature-list small">
 										<div class="row">
+											<?php $count = 1;
+											foreach ($contactList as $contactFeature) {
+											?>
 											<div class="6u 12u(mobile)">
+												<section>
+													<h3 class="<?php echo $contactFeature['contactIcon']  ?>"><?php echo $contactFeature['contactTitle'] ?></h3>
+													<p>
+														<?php echo $contactFeature['contactLink'] ?>
+													</p>
+												</section>
+											</div>
+											<?php if($count % 2== 0) { ?>
+                                			</div>
+                                				<div class="row">
+                                				   <?php }  ?>
+                                				   <?php $count++;
+                                					} ?>                                    
+                       	    					</div>
+                       						</div>
+
+
+
+
+
+<!-- 											<div class="6u 12u(mobile)">
 												<section>
 													<h3 class="icon fa-home">Mailing Address</h3>
 													<p>
@@ -342,7 +391,7 @@ $features = [
 														(000) 555-0000
 													</p>
 												</section>
-											</div>
+											</div> -->
 										</div>
 									</section>
 
