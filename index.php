@@ -101,15 +101,11 @@ $features = [
 $contactList = [
 	['contactTitle' => 'Mailing Address',
 	 'contactIcon' => 'icon fa-home',
-	 'contactLink' => 'Untitled Corporation',
-	 			'1234 Somewhere Rd #987',
-	 			'Nashville, TN 00000-0000'
+	 'contactLink' => 'Untitled Corporation<br />1234 Somewhere Rd #987<br />Nashville, TN 00000-0000'
 	],
 	['contactTitle' => 'Social',
 	 'contactIcon' => 'icon fa-comment',
-	 'contactLink' => '@untitled-corp',
-	 			'linkedin.com/untitled',
-	 			'facebook.com/untitled'
+	 'contactLink' => '<a href="#">@untitled-corp</a><br /><a href="#">linkedin.com/untitled</a><br /><a href="#">facebook.com/untitled</a>'
 	],
 	['contactTitle' => 'Email',
 	 'contactIcon' => 'icon fa-envelope',
